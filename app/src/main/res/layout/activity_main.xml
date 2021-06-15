@@ -1,39 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <EditText
-        android:layout_marginTop="30dp"
-        android:hint="이름을 입력하세요"
-        android:id="@+id/fristNameInput"
+    <data>
+        <variable
+            name="Btnobservable"
+            type="com.example.room_study.BtnOnClick" />
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/emailInput"
-        android:layout_below="@id/fristNameInput"
-        android:layout_marginTop="30dp"
-        android:hint="이메일을 입력하세요"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <EditText
+            android:layout_marginTop="30dp"
+            android:hint="이름을 입력하세요"
+            android:id="@+id/fristNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/saveBtn"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/emailInput"
-        android:backgroundTint="@color/black"
-        android:text="데이터베이스에 저장"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/emailInput"
+            android:layout_below="@id/fristNameInput"
+            android:layout_marginTop="30dp"
+            android:hint="이메일을 입력하세요"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_below="@id/saveBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</RelativeLayout>
+        <Button
+            android:onClick="@{() -> Btnobservable.onCilck()}"
+            android:id="@+id/saveBtn"
+            android:textColor="@color/white"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/emailInput"
+            android:backgroundTint="@color/black"
+            android:text="@{Btnobservable.btnText}"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_below="@id/saveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</layout>

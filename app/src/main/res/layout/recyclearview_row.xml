@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvName"
-            android:textColor="@color/black"
-            android:layout_margin="10sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_marginStart="10sp"
-            app:layout_constraintBottom_toBottomOf="@id/tvName"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
-        <ImageView
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_margin="10sp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/deleteUserID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:id="@+id/tvName"
+                android:textColor="@color/black"
+                android:layout_margin="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:textSize="15sp"
+                android:id="@+id/tvEmail"
+                android:layout_margin="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:id="@+id/deleteUserID"
+                android:layout_width="60sp"
+                android:layout_height="60sp"
+                android:src="@drawable/recycle_" />
+    </RelativeLayout>
 </layout>
