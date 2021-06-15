@@ -10,7 +10,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "userinfo")
 data class UserEntity (
     //기본키설정
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id : Int = 0,
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id") val id : Int = 0,
     //필드명 즉, 열의 이름을 다르게
     @ColumnInfo(name = "name") val name : String,
     @ColumnInfo(name = "email") val email : String
