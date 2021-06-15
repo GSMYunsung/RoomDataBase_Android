@@ -43,7 +43,7 @@ class RecyclerViewAdapter(val listener : RowClickListener) : RecyclerView.Adapte
             tvEmail.text = data.email
 
             deleteUserId.setOnClickListener {
-                listener.onItemClikListener(data)
+                listener.onDeleteUserClickListener(data)
             }
         }
     }
