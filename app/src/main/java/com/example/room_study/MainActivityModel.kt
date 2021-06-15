@@ -9,13 +9,14 @@ import com.example.room_study.DB.UserEntity
 //Activity와 Fragment 에서 사용되는 UI관련 설정을 보관하고 관리하기 위한곳.
 //엑티비티가 재생성되는 과정에서도 ViewModle을 유지함으로써 데이터를 안전하게 다룰 수 있다.
 
-class MainActivityModel(app : Application) : AndroidViewModel(app) {
-    //라이브 데이터를 위
-    lateinit var allUsers : MutableLiveData<List<UserEntity>>
+class  MainActivityModel(app : Application) : AndroidViewModel(app) {
+    //라이브 데이터를 위해
+     var allUsers : MutableLiveData<List<UserEntity>>
 
 
     init{
         allUsers = MutableLiveData()
+        getAllUsers()
     }
 
     fun getAllUsersObservers() : MutableLiveData<List<UserEntity>> {
@@ -23,6 +24,7 @@ class MainActivityModel(app : Application) : AndroidViewModel(app) {
     }
 
     //라이브데이터를 모두 모아오는곳.
+    //해당 어플리케이션에 context 를 넣어주어 RoomDatabase 객체를 생성해준다!
     fun getAllUsers() {
       val userDao = RoomAppDB.getAppDatabase(getApplication())?.userDao()
       val list = userDao?.getAllUserInfo()
