@@ -23,6 +23,7 @@ class RecyclerViewAdapter(val listener : RowClickListener) : RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: RecyclerViewAdapter.MyViewHolder, position: Int) {
         holder.itemView.setOnClickListener {
+            //값 넣어주는부분이라네요~
             listener.onItemClikListener(items[position])
         }
         holder.bind(items[position])
