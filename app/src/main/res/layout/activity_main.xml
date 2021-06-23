@@ -39,7 +39,7 @@
             android:layout_marginTop="30dp"
             android:layout_below="@id/emailInput"
             android:backgroundTint="@color/black"
-            android:text="@{Btnobservable.btnText}"
+            android:text="값추가하기"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content" />
 

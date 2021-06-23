@@ -61,15 +61,16 @@ class MainActivity : AppCompatActivity(),RecyclerViewAdapter.RowClickListener {
     }
 
     override fun onItemClikListener(user: UserEntity) {
+        mainbinding.saveBtn.setText("값 수정하기")
        mainbinding.fristNameInput.setText(user.name)
        mainbinding.emailInput.setText(user.email)
         //key , value 방식으로 가져온다.
+        //밑에 User에서 id를 받아와서 넣어준다!
        mainbinding.fristNameInput.setTag(mainbinding.fristNameInput.id,user.id)
     }
 }
 
 class BtnOnClick : BaseObservable(){
-    var BtnText : ObservableField<String> = ObservableField("값추가하기")
 
     fun onCilck(){
         val name = mainbinding.fristNameInput.text.toString()
@@ -80,18 +81,17 @@ class BtnOnClick : BaseObservable(){
             val user = UserEntity(0, name, email)
             viewModel.insertUserInfo(user)
         }
-        else
+        else if(mainbinding.saveBtn.text.equals("값 수정하기"))
         {
+            //해당 id로 값을 다시 뿌려주어야하기때문에 필요하다!
             val user = UserEntity(mainbinding.fristNameInput
                 .getTag(mainbinding.fristNameInput.id)
                 .toString().toInt(), name, email)
+                mainbinding.saveBtn.setText("값추가하기")
             viewModel.updateUserInfo(user)
         }
 
         mainbinding.fristNameInput.setText("")
         mainbinding.emailInput.setText("")
-
-        numplus++
-        BtnText.set("데이터가 " + numplus.toString() + "번 들어갔습니다.")
     }
 }
